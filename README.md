@@ -2,14 +2,14 @@
 
 Mikrostoritev, ki omogoča upravljanje produktov.
 
-#Installation
+# Installation
 mvn clean install
 
-#Run
+# Run
 mvn spring-boot:run
 
-#Run Tests
+# Run Tests
 mvn test
 
-#API documentation
+# API documentation
 API dokumentacija je dostopna na:http://localhost:8080/swagger-ui/index.html#/
