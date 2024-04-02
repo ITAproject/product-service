@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  mongo:
+    image: mongo:4.0.4
+    container_name: mongo_products
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./data:/data/db_data_products
+    networks:
+      - network
+  service:
+    container_name: backend_products
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://root:root@mongo:27017
+      - SPRING_DATA_MONGODB_URI_DATABASE=products
+    depends_on:
+      - mongo
+    networks:
+      - network
+
+networks:
+  network:
