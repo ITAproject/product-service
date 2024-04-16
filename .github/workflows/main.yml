@@ -32,7 +32,7 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASS }}
 
       - name: Build Docker image
-        run: docker build -t jernejofic444/product-service -f src/main/docker/Dockerfile.jvm .
+        run: docker build -t jernejofic444/product-service .
 
 
       - name: Push Docker image
